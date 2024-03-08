@@ -33,7 +33,7 @@ app.use("/api/v1/tasks", isAuthenticated, taskRoute);
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
+  .then((c) => console.log(`MongoDB Connected with ${c.connection.host}`))
   .catch((error) => console.log("Error:", error));
 
 app.listen(process.env.PORT, () =>
