@@ -20,12 +20,12 @@ async function register(req, res, next) {
     let user = await User.findOne({ email });
     if (user) return next(new ErrorHandler(404, "User Already exists"));
 
-    // const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     user = await User.create({
       name,
       email,
-      // password: hashedPassword,
+      password: hashedPassword,
       password,
     });
     sendCookie(res, user, "User Successfully Created");
