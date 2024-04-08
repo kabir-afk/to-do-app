@@ -26,7 +26,6 @@ async function register(req, res, next) {
       name,
       email,
       password: hashedPassword,
-      password,
     });
     sendCookie(res, user, "User Successfully Created");
   } catch (error) {
