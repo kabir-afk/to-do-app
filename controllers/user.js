@@ -17,6 +17,7 @@ function getMyProfile(req, res) {
 async function register(req, res, next) {
   try {
     const { name, email, password } = req.body;
+    console.log(name, email, password);
     let user = await User.findOne({ email });
     if (user) return next(new ErrorHandler(404, "User Already exists"));
 
